@@ -1,0 +1,15 @@
+{
+  "name": "inner-i-secure",
+  "version": "1.0.0",
+  "description": "Inner I Secure Gateway — Tool policy engine, injection detection, and audit chain for AI agent governance",
+  "main": "secure_api/main.py",
+  "scripts": {
+    "start": "python -m uvicorn secure_api.main:app --host 0.0.0.0 --port ${PORT:-8787} --workers 1",
+    "test": "python -m pytest tests/ -v"
+  },
+  "dependencies": {
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "pydantic>=2.0.0"
+  }
+}

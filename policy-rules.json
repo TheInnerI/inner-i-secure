@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "description": "Inner I Secure — Default policy rules for AI agent tool governance",
+  "rules": [
+    {
+      "tool": "mio_evaluate",
+      "allowed": true,
+      "reason": "MIO Evaluator core function — allowed",
+      "max_calls_per_hour": 100
+    },
+    {
+      "tool": "coherence_check",
+      "allowed": true,
+      "reason": "Coherence scoring — allowed"
+    },
+    {
+      "tool": "groundedness_check",
+      "allowed": true,
+      "reason": "Groundedness evaluation — allowed"
+    },
+    {
+      "tool": "conformance_check",
+      "allowed": true,
+      "reason": "Conformance validation — allowed"
+    },
+    {
+      "tool": "injection_scan",
+      "allowed": true,
+      "reason": "Security scanning — allowed"
+    },
+    {
+      "tool": "policy_evaluate",
+      "allowed": true,
+      "reason": "Policy evaluation — allowed"
+    },
+    {
+      "tool": "audit_read",
+      "allowed": true,
+      "reason": "Audit chain read — allowed"
+    },
+    {
+      "tool": "shell_exec",
+      "allowed": false,
+      "reason": "Shell execution denied by default — requires explicit allowlist"
+    },
+    {
+      "tool": "file_delete",
+      "allowed": false,
+      "reason": "File deletion denied by default — destructive operation"
+    },
+    {
+      "tool": "network_request",
+      "allowed": false,
+      "reason": "External network requests denied by default — potential exfiltration"
+    }
+  ]
+}

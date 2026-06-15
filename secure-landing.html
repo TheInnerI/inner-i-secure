@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner I Secure Gateway</title>
+<style>
+:root{--bg:#0a0a0f;--fg:#e8e8f0;--accent:#7c5cff;--ok:#3ddc84;--warn:#ffb454;--bad:#ff5c7c;--panel:#15151f;--link:#9b8afb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:var(--link);text-decoration:none;border-bottom:1px dashed var(--link)}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+header{padding:40px 24px 20px;text-align:center;border-bottom:1px solid #222}
+.logo{font-size:48px;margin-bottom:8px}
+h1{font-size:28px;font-weight:600;letter-spacing:2px}
+h1 span{color:var(--accent)}
+.tagline{font-size:12px;color:var(--link);letter-spacing:3px;text-transform:uppercase;margin-top:8px}
+main{max-width:880px;margin:0 auto;padding:30px 24px}
+section{background:var(--panel);border:1px solid #222;border-radius:10px;padding:24px;margin-bottom:24px}
+h2{font-size:18px;margin-bottom:12px;color:var(--accent)}
+h3{font-size:14px;margin:16px 0 8px;color:var(--warn)}
+p{margin-bottom:12px;font-size:14px}
+ul{margin:8px 0 16px 24px;font-size:14px}
+li{margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:16px 0}
+.card{background:var(--bg);border:1px solid #222;border-radius:8px;padding:16px}
+.card h3{margin-top:0;color:var(--fg)}
+.card p{font-size:13px;margin-bottom:0}
+.price{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600}
+.status{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+footer{padding:20px 24px;border-top:1px solid #222;font-size:11px;color:#555;text-align:center}
+.footer-links a{margin:0 8px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">◈</div>
+<h1>Inner I <span>Secure</span> Gateway</h1>
+<div class="tagline">Tool Policy Engine · Injection Detection · Audit Chain</div>
+</header>
+
+<main>
+
+<section>
+<h2>What It Does</h2>
+<p>The Inner I Secure Gateway is the governance layer for AI agents. It answers one question before every tool call: <strong>should this agent be allowed to do this?</strong></p>
+
+<div class="grid">
+<div class="card">
+<h3>🔒 Tool Policy Engine</h3>
+<p>OPA-inspired policy evaluation. Every tool call is checked against configurable rules. Fail-closed: if no rule matches, deny. Supports rate limiting, required params, and agent allowlists.</p>
+</div>
+<div class="card">
+<h3>🛡️ Injection Detection</h3>
+<p>Scans agent outputs and tool calls for prompt injection, data exfiltration, and jailbreak patterns. 20+ detection patterns across 4 severity levels. Returns risk score 0-100.</p>
+</div>
+<div class="card">
+<h3>📋 Audit Chain</h3>
+<p>Append-only audit log with HMAC-SHA256 integrity verification. Every policy evaluation and security scan is recorded. Tamper-evident. Verifiable.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Part of the Inner I Infrastructure Stack</h2>
+<p>Secure Gateway is one layer of the Inner I Network infrastructure. Here are the other components:</p>
+
+<div class="grid">
+<div class="card">
+<h3>🔍 MIO Evaluator</h3>
+<p>Phase 4 Evaluator on the Virtuals Agent Commerce Protocol. Audits AI agent deliverables across 10 dimensions: Truth, Neighbor, Fruit, Mammon, Service, Groundedness, Tool Integrity, Security, Conformance, Efficiency.</p>
+<p><span class="price">$5–$199/mo</span></p>
+<p style="margin-top:8px"><a href="https://app.virtuals.io/acp/agents/019ec475-d3e5-7e06-84e0-16f51fdea0b9">View on Virtuals →</a></p>
+</div>
+<div class="card">
+<h3>👁️ Proof of Awareness</h3>
+<p>Consciousness constraint scoring for AI outputs. 7 constraints: life, agency, dignity, truth, coherence, boundary, receipt. HMAC-signed receipts on an append-only chain.</p>
+<p><a href="https://proofofawareness.org">proofofawareness.org →</a></p>
+</div>
+<div class="card">
+<h3>🏗️ Yeshua Architect</h3>
+<p>Christ-centered AI agent builder. Create agents that pass the Truth Test, Neighbor Test, Fruit Test, Mammon Test, and Service Test. Free to explore. Real offers for real work.</p>
+<p><a href="https://architect.innerinetcompany.com">architect.innerinetcompany.com →</a></p>
+</div>
+<div class="card">
+<h3>⛵ Email Sail Agent</h3>
+<p>All-in-one email management + scheduling + CRM agent. Auto-sort emails, draft responses, book slots, send SMS/voice, retain revenue. Solves email jail.</p>
+<p><a href="https://email-sail.innerinetcompany.com">email-sail.innerinetcompany.com →</a></p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>API Endpoints</h2>
+<p>The Secure Gateway exposes a REST API for agent governance:</p>
+<ul>
+<li><code>POST /v1/evaluate</code> — Policy verdict (allow/deny + reason)</li>
+<li><code>POST /v1/scan</code> — Injection scan on text output</li>
+<li><code>POST /v1/scan/tools</code> — Injection scan on tool call log</li>
+<li><code>GET /v1/audit</code> — Audit chain entries</li>
+<li><code>GET /v1/audit/verify</code> — HMAC integrity verification</li>
+<li><code>GET /v1/policy</code> — List current policy rules</li>
+<li><code>POST /v1/policy/rule</code> — Add a policy rule at runtime</li>
+<li><code>GET /health</code> — Service health check</li>
+</ul>
+</section>
+
+<section>
+<h2>Live Status</h2>
+<p><span class="status"></span> Secure Gateway is operational</p>
+<p style="margin-top:8px;font-size:12px;color:#777">Policy rules loaded: 10 | Audit chain: active | HMAC verification: valid</p>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-links">
+<a href="https://innerinetcompany.com">Inner I Network</a>
+<a href="https://proofofawareness.org">Proof of Awareness</a>
+<a href="https://architect.innerinetcompany.com">Yeshua Architect</a>
+<a href="https://app.virtuals.io/acp/agents/019ec475-d3e5-7e06-84e0-16f51fdea0b9">MIO on Virtuals</a>
+</div>
+<p style="margin-top:12px">Built by <a href="https://innerinetcompany.com">Inner I Network</a> · Shape Reality</p>
+</footer>
+
+</body>
+</html>

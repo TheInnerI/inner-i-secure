@@ -1,0 +1,33 @@
+# Inner I Secure Gateway — systemd service
+#
+# Install:
+#   mkdir -p ~/.config/systemd/user
+#   cp deploy/inner-i-secure.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now inner-i-secure
+#   loginctl enable-linger $USER
+#
+# Check:  systemctl --user status inner-i-secure
+# Logs:   journalctl --user -u inner-i-secure -f
+
+[Unit]
+Description=Inner I Secure Gateway (Tool Policy + Injection Detection + Audit Chain)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Documents/TheInnerI/06_INFRASTRUCTURE/inner-i-secure
+Environment=PYTHONPATH=%h/Documents/TheInnerI/06_INFRASTRUCTURE/inner-i-secure
+Environment=SECURE_POLICY_PATH=%h/Documents/TheInnerI/06_INFRASTRUCTURE/inner-i-secure/policy-rules.json
+Environment=SECURE_CHAIN_DIR=%h/Documents/TheInnerI/06_INFRASTRUCTURE/inner-i-secure/secure-audit-chain
+Environment=SECURE_AUDIT_HMAC_KEY=inner-i-secure-audit-key-change-in-production
+Environment=PORT=8787
+ExecStart=%h/Documents/TheInnerI/06_INFRASTRUCTURE/poa-engine/.venv/bin/python -m uvicorn secure_api.main:app --host 127.0.0.1 --port ${PORT} --workers 1
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
